@@ -65,7 +65,7 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className={`sticky top-0 z-50 w-full border-b ${isMenuOpen && isMobile ? 'bg-background backdrop-blur-md' : 'bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'}`}>
       <div className="container flex h-16 items-center justify-between">
         {/* Logo/Brand */}
         <Link href="/" className="flex items-center space-x-3">
@@ -117,9 +117,11 @@ const Header = () => {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-background border-l shadow-lg md:hidden"
+            className="fixed inset-y-0 right-0 z-[99999] w-full max-w-sm bg-background text-foreground border-l shadow-lg md:hidden relative"
           >
-            <div className="flex flex-col h-full">
+            {/* Solid background layer to guarantee full opacity */}
+            <div className="pointer-events-none absolute inset-0 bg-background z-0" aria-hidden="true" />
+            <div className="relative z-10 flex flex-col h-full">
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between p-4 border-b">
                 <span className="font-serif text-lg font-semibold">Menu</span>
@@ -145,7 +147,7 @@ const Header = () => {
                     >
                       <Link
                         href={item.href}
-                        className="flex items-center gap-3 px-3 py-2 text-lg font-medium rounded-lg transition-colors hover:bg-muted"
+                        className="flex items-center gap-3 px-3 py-2 text-lg font-medium rounded-lg transition-colors hover:bg-muted hover:text-slate-blue"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.icon && <item.icon className="h-5 w-5" />}
@@ -167,7 +169,7 @@ const Header = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-[9998] bg-off-black backdrop-blur-md md:hidden"
             onClick={() => setIsMenuOpen(false)}
           />
         )}
