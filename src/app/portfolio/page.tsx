@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import MasonryGallery from '@/components/gallery/masonry-gallery';
+import PortfolioGrid from '@/components/gallery/portfolio-grid';
 import GalleryFilters from '@/components/gallery/gallery-filters';
 import { sampleArtworks } from '@/lib/sample-data';
 import { GalleryFilters as GalleryFiltersType } from '@/types';
@@ -91,14 +91,10 @@ const PortfolioPage = () => {
       />
 
       {/* Gallery */}
-      <section className="py-12">
+      <section className="py-12 mb-[120px] overflow-hidden">
         <div className="container mx-auto px-4">
           {filteredArtworks.length > 0 ? (
-            <MasonryGallery
-              artworks={filteredArtworks}
-              columns={3}
-              gap={24}
-            />
+            <PortfolioGrid artworks={filteredArtworks} />
           ) : (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
