@@ -1,26 +1,203 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light theme colors (HSL triplets for Tailwind v4 @theme) */
+  --background: 50 74% 98%; /* Warm White #FEFDF8 */
+  --foreground: 220 7% 18%; /* Deep Charcoal #2B2D31 */
+  --card: 50 74% 98%;
+  --card-foreground: 220 7% 18%;
+  --popover: 50 74% 98%;
+  --popover-foreground: 220 7% 18%;
+  --primary: 220 7% 18%; /* Use Deep Charcoal for primary text */
+  --primary-foreground: 50 74% 98%;
+  --secondary: 0 0% 96%; /* Light Gray #F5F5F5 */
+  --secondary-foreground: 220 7% 18%;
+  --muted: 0 0% 96%; /* Light Gray */
+  --muted-foreground: 0 0% 54%; /* Medium Gray #8A8A8A */
+  --accent: 31 53% 64%; /* Gallery Gold #D4A574 */
+  --accent-foreground: 0 0% 10%; /* Off-Black #1A1A1A */
+  --destructive: 0 84% 60%; /* keep standard red */
+  --destructive-foreground: 50 74% 98%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 31 53% 64%; /* Gold accent ring */
+  --radius: 0.5rem;
+
+  /* Custom art portfolio named colors */
+  --gallery-gold: 31 53% 64%; /* #D4A574 */
+  --sage-green: 88 14% 54%; /* #8B9A7A */
+  --dusty-rose: 0 35% 74%; /* #D4A5A5 */
+  --slate-blue: 220 19% 51%; /* #6B7B9B */
+  --terracotta: 20 46% 54%; /* #C07855 */
+  --off-black: 0 0% 10%; /* #1A1A1A */
+  --warm-white: 50 74% 98%; /* #FEFDF8 */
+}
+
+.dark {
+  /* Dark theme colors (HSL) */
+  --background: 0 0% 10%; /* Off-Black */
+  --foreground: 50 74% 98%; /* Warm White */
+  --card: 0 0% 10%;
+  --card-foreground: 50 74% 98%;
+  --popover: 0 0% 10%;
+  --popover-foreground: 50 74% 98%;
+  --primary: 50 74% 98%;
+  --primary-foreground: 0 0% 10%;
+  --secondary: 0 0% 25%;
+  --secondary-foreground: 50 74% 98%;
+  --muted: 0 0% 25%;
+  --muted-foreground: 0 0% 64%;
+  --accent: 31 53% 64%;
+  --accent-foreground: 0 0% 10%;
+  --destructive: 0 63% 48%;
+  --destructive-foreground: 50 74% 98%;
+  --border: 0 0% 25%;
+  --input: 0 0% 25%;
+  --ring: 31 53% 64%;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-gallery-gold: hsl(var(--gallery-gold));
+  --color-sage-green: hsl(var(--sage-green));
+  --color-dusty-rose: hsl(var(--dusty-rose));
+  --color-slate-blue: hsl(var(--slate-blue));
+  --color-terracotta: hsl(var(--terracotta));
+  --color-off-black: hsl(var(--off-black));
+  --color-warm-white: hsl(var(--warm-white));
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: hsl(var(--border));
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Custom utility classes */
+.gallery-wall {
+  background-image:
+    linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
+    linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Gallery-specific styles */
+.gallery-container {
+  @apply container mx-auto px-4;
+}
+
+.gallery-section {
+  @apply py-16 md:py-20 lg:py-24;
+}
+
+.gallery-header {
+  @apply text-center mb-12 md:mb-16;
+}
+
+.gallery-title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-serif font-light mb-4;
+}
+
+.gallery-subtitle {
+  @apply text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto;
+}
+
+/* Artwork card styles */
+.artwork-card {
+  @apply relative overflow-hidden rounded-lg bg-muted transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+}
+
+.artwork-image {
+  @apply w-full h-full object-cover transition-transform duration-500 group-hover:scale-105;
+}
+
+.artwork-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+}
+
+.artwork-info {
+  @apply absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300;
+}
+
+/* Button variants */
+.btn-gallery-primary {
+  @apply bg-gallery-gold hover:bg-gallery-gold/90 text-off-black font-medium px-6 py-3 rounded-lg transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+}
+
+.btn-gallery-secondary {
+  @apply border border-gallery-gold text-gallery-gold hover:bg-gallery-gold hover:text-off-black font-medium px-6 py-3 rounded-lg transition-all duration-200;
+}
+
+/* Typography styles */
+.heading-primary {
+  @apply text-4xl md:text-5xl lg:text-6xl font-serif font-light;
+}
+
+.heading-secondary {
+  @apply text-3xl md:text-4xl lg:text-5xl font-serif font-light;
+}
+
+.heading-tertiary {
+  @apply text-2xl md:text-3xl lg:text-4xl font-serif font-light;
+}
+
+/* Layout utilities */
+.section-padding {
+  @apply py-16 md:py-20 lg:py-24;
+}
+
+.container-padding {
+  @apply px-4 md:px-6 lg:px-8;
+}
+
+/* Focus states for accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-gallery-gold focus:ring-offset-2 focus:ring-offset-background;
+}
+
+/* Loading states */
+.skeleton {
+  @apply animate-pulse bg-muted rounded;
+}
+
+.skeleton-text {
+  @apply animate-pulse bg-muted rounded h-4 w-full;
+}
+
+.skeleton-title {
+  @apply animate-pulse bg-muted rounded h-6 w-3/4;
+}
+
+.skeleton-image {
+  @apply animate-pulse bg-muted rounded aspect-square w-full;
 }
