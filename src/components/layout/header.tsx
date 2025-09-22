@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Menu,
@@ -66,7 +68,15 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo/Brand */}
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-3">
+          <Image
+            src="/images/icons/wa-icon.jpeg"
+            alt="JW logo"
+            width={28}
+            height={28}
+            className="h-7 w-7 object-contain"
+            priority
+          />
           <span className="font-serif text-xl font-bold">Jennifer Watkins</span>
         </Link>
 

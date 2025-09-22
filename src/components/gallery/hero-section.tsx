@@ -22,7 +22,7 @@ const HeroSection = ({ settings, featuredArtworks }: HeroSectionProps) => {
     if (featuredArtworks.length > 1) {
       const interval = setInterval(() => {
         setCurrentImageIndex((prev) => (prev + 1) % featuredArtworks.length);
-      }, 5000); // Change image every 5 seconds
+      }, 10000); // Change image every 10 seconds
 
       return () => clearInterval(interval);
     }
@@ -98,7 +98,7 @@ const HeroSection = ({ settings, featuredArtworks }: HeroSectionProps) => {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-off-black"
+              className="border-white bg-white/90 text-off-black hover:bg-white hover:text-off-black"
               asChild
             >
               <Link href="/about">
