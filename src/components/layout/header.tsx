@@ -16,6 +16,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useMobile } from '@/hooks/use-mobile';
+import ThemeToggle from '@/components/layout/theme-toggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -96,7 +97,10 @@ const Header = () => {
         </nav>
 
         {/* Right Side Actions */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 md:space-x-4">
+          {/* Theme Toggle */}
+          <ThemeToggle />
+
           {/* Mobile Menu Button */}
           <Button
             variant="ghost"

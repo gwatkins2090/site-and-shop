@@ -1,10 +1,10 @@
 import { Artwork, Artist, SiteSettings, Exhibition, Award } from '@/types';
 import EtherealLandscapes from '../../public/images/artworks/landscapes.jpg';
-import UrbanReflections from '../../public/images/artworks/urban-reflections.jpg.jpg';
-import AbstractEmotions from '../../public/images/artworks/abstract-emotions.jpg.jpg';
-import BotanicalStudies from '../../public/images/artworks/botanical-studies.jpg.jpg';
-import CosmicDance from '../../public/images/artworks/cosmic-dance.jpg.jpg';
-import MinimalistSerenity from '../../public/images/artworks/minimalist-serenity.jpg.jpg';
+import UrbanReflections from '../../public/images/artworks/urban-reflections.jpg';
+import AbstractEmotions from '../../public/images/artworks/abstract-emotions.jpg';
+import BotanicalStudies from '../../public/images/artworks/botanical-studies.jpg';
+import CosmicDance from '../../public/images/artworks/cosmic-dance.jpg';
+import MinimalistSerenity from '../../public/images/artworks/minimalist-serenity.jpg';
 import ArtistPortrait from '../../public/images/artist/artist-portrait.jpg.png';
 
 

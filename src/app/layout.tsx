@@ -55,6 +55,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var s=localStorage.getItem('theme');var m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;var d=(s==='dark')||(!s&&m);var e=document.documentElement;d?e.classList.add('dark'):e.classList.remove('dark');}catch(e){}})();` }} />
+      </head>
       <body className="antialiased">
         <Header />
         <main className="min-h-screen">
