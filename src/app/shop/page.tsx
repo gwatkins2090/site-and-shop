@@ -73,8 +73,6 @@ const ShopPage = () => {
   };
 
   const handleAddToCart = (artworkId: string) => {
-    // Simulate adding to cart
-    console.log('Adding to cart:', artworkId);
     // In a real app, this would update cart state/context
   };
 

@@ -33,7 +33,6 @@ const ArtworkPage = ({ params }: ArtworkPageProps) => {
     .slice(0, 3);
 
   const handleAddToCart = () => {
-    console.log('Adding to cart:', artwork.id);
     // In a real app, this would update cart state/context
   };
 

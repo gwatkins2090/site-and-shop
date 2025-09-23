@@ -14,7 +14,6 @@ import {
   Mail
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { useMobile } from '@/hooks/use-mobile';
 import ThemeToggle from '@/components/layout/theme-toggle';
 
